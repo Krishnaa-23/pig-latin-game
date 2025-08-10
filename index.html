@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pig Latin Converter</title>
+    <style>
+        body {
+            font-family: arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Pig Latin Converter</h1>
+    <input type="text" id="wordInput" placeholder="Enter any word">
+    <button onclick="convertToPigLatin()">Convert</button>
+    <p id="result"></p>
+
+    <script>
+        function convertToPigLatin() {
+            let word = document.getElementById("wordInput").value.trim();
+            let result = "";
+
+            if (word.length > 0) {
+                let firstLetter = word[0].toLowerCase();
+                let vowels = ["a", "e", "i", "o", "u"];
+
+                if (vowels.includes(firstLetter)) {
+                    result = word + "ay"; 
+                } else {
+                    result = word.slice(1) + "-" + firstLetter + "ay";
+                }
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+</body>
+</html>
